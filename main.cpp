@@ -10,13 +10,16 @@ using std::ifstream;
 using std::string;
 
 void ReadBoardFile(string pathToFile){
-    ifstream boardFile(pathToFile);
+    ifstream boardFile;
+    boardFile.open(pathToFile);
 
-    if(boardFile){
+    if(boardFile.is_open()){
         string line;
         while(getline(boardFile, line)){
             cout << line << "\n";
         }
+    } else {
+        cout << "failed to get file from path \n";
     }
 }
 
